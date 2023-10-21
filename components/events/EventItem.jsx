@@ -1,5 +1,9 @@
-import Link from "next/link";
 import React from "react";
+import styles from "./eventItem.module.css";
+import Button from "../ui/Button";
+import DateIcon from "../icons/dateIcon";
+import AddressIcon from "../icons/addressIcon";
+import ArrowRightIcon from "../icons/arrowRightIcon";
 
 const EventItem = (props) => {
   const { id, title, image, date, location } = props;
@@ -13,20 +17,27 @@ const EventItem = (props) => {
   const formattedLocation = location.replace(", ", "\n"); // to add a line break
 
   return (
-    <li>
+    <li className={styles.item}>
       <img src={"/" + image} alt={title} />
-      <div>
-        <div>
+      <div className={styles.content}>
+        <div className={styles.summary}>
           <h2>{title}</h2>
-          <div>
+          <div className={styles.date}>
+            <DateIcon />
             <time>{humanReadableDate}</time>
           </div>
-          <div>
+          <div className={styles.address}>
+            <AddressIcon />
             <address>{formattedLocation}</address>
           </div>
         </div>
-        <div>
-          <Link href={`/events/${id}`}>Explore Event</Link>
+        <div className={styles.actions}>
+          <Button link={`/events/${id}`}>
+            <span>Explore Event</span>
+            <span className={styles.icon}>
+              <ArrowRightIcon />
+            </span>
+          </Button>
         </div>
       </div>
     </li>

@@ -1,12 +1,13 @@
 import React from "react";
 import EventItem from "./EventItem";
+import styles from "./eventsList.module.css";
 
 const EventsList = (props) => {
   // const events = props.events;
   const { events } = props;
 
   return (
-    <ul>
+    <ul className={styles.list}>
       {events.map((event) => (
         <EventItem
           key={event.id}
