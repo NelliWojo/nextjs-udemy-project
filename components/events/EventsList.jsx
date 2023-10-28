@@ -4,11 +4,11 @@ import styles from "./events-list.module.css";
 
 const EventsList = (props) => {
   // const events = props.events;
-  const { events } = props;
+  const { items } = props;
 
   return (
     <ul className={styles.list}>
-      {events.map((event) => (
+      {items?.map((event) => (
         <EventItem
           key={event.id}
           id={event.id}

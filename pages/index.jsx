@@ -5,7 +5,7 @@ import React from "react";
 const HomePage = () => {
   const featuredEvents = getFeaturedEvents();
 
-  return <EventsList events={featuredEvents} />;
+  return <EventsList items={featuredEvents} />;
 };
 
 export default HomePage;
