@@ -5,7 +5,8 @@ import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 
 const AllEventsPage = () => {
-  const events = Array.from(getAllEvents);
+  const events = getAllEvents();
+  // const events = Array.from(getAllEvents);
   const router = useRouter();
 
   function findEventsHandler(year, month) {
