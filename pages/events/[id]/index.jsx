@@ -2,7 +2,7 @@ import EventContent from "@/components/eventDetails/event-content";
 import EventLogistics from "@/components/eventDetails/event-logistics";
 import EventSummary from "@/components/eventDetails/event-summary";
 import ErrorAlert from "@/components/ui/ErrorAlert";
-import { getAllEvents, getEventById } from "@/utils/api-utils";
+import { getEventById, getFeaturedEvents } from "@/utils/api-utils";
 // import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 
@@ -15,18 +15,20 @@ export async function getStaticProps(context) {
     props: {
       selectedEvent: event,
     },
+    revalidate: 30,
   };
 }
 
 // as id is a dynamic parameter
 export async function getStaticPaths() {
-  const events = await getAllEvents();
+  const events = await getFeaturedEvents();
 
   const paths = events.map((event) => ({ params: { id: event.id } }));
 
   return {
     paths: paths,
-    fallback: false,
+    // fallback: false,
+    fallback: "blocking", // to tell nextjs that we have more pages that only featured events
   };
 }
 
@@ -37,9 +39,11 @@ const EventDetailsPage = (props) => {
 
   if (!event) {
     return (
-      <ErrorAlert>
-        <p>No event found</p>
-      </ErrorAlert>
+      // <ErrorAlert>
+      <div className="center">
+        <p>Loading...</p>
+      </div>
+      // </ErrorAlert>
     );
   }
 
