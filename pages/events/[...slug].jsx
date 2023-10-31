@@ -53,9 +53,9 @@ export async function getServerSideProps(context) {
 }
 
 const FilteredEventsPage = (props) => {
-  const router = useRouter();
-
-  /*   const filterData = router.query.slug;
+  // needed for client-side fetching & useSWR()
+  /*   const router = useRouter();
+    const filterData = router.query.slug;
 
   if (!filterData) {
     return <p className="center">Loading...</p>;
