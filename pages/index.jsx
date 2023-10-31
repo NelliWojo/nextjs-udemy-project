@@ -1,5 +1,6 @@
 import EventsList from "@/components/events/EventsList";
 import { getFeaturedEvents } from "@/utils/api-utils";
+import Head from "next/head";
 import React from "react";
 
 export async function getStaticProps() {
@@ -17,6 +18,10 @@ const HomePage = (props) => {
   const { events } = props;
   return (
     <div>
+      <Head>
+        <title>NextJS Events</title>
+        <meta name="description" content="Find your special event" />
+      </Head>
       <EventsList items={events} />
     </div>
   );

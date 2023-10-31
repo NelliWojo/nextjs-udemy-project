@@ -3,6 +3,7 @@ import ResultsTitle from "@/components/events/ResultsTitle";
 import Button from "@/components/ui/Button";
 import ErrorAlert from "@/components/ui/ErrorAlert";
 import { getFilteredEvents } from "@/utils/api-utils";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 
@@ -106,8 +107,19 @@ const FilteredEventsPage = (props) => {
 
   const date = new Date(props.date.year, props.date.month - 1);
 
+  const pageHeadData = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta
+        name="description"
+        content={`All events for ${props.date.month}/${props.date.year}`}
+      />
+    </Head>
+  );
+
   return (
     <Fragment>
+      {pageHeadData}
       <ResultsTitle date={date} />
       <EventsList items={filteredEvents} />;
     </Fragment>
