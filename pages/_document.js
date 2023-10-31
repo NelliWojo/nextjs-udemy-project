@@ -1,4 +1,10 @@
-const { Document, Html, Head, Main, NextScript } = require("next/document");
+const {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  default: Document,
+} = require("next/document");
 
 class MyDocument extends Document {
   render() {
