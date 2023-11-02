@@ -2,7 +2,7 @@ import EventContent from "@/components/eventDetails/event-content";
 import EventLogistics from "@/components/eventDetails/event-logistics";
 import EventSummary from "@/components/eventDetails/event-summary";
 import Comments from "@/components/input/comments";
-import ErrorAlert from "@/components/ui/ErrorAlert";
+import ErrorAlert from "@/components/ui/error-alert";
 import { getEventById, getFeaturedEvents } from "@/utils/api-utils";
 import Head from "next/head";
 // import { useRouter } from "next/router";
