@@ -1,4 +1,5 @@
 import EventsList from "@/components/events/EventsList";
+import NewsletterRegistration from "@/components/input/newsletter-registration";
 import { getFeaturedEvents } from "@/utils/api-utils";
 import Head from "next/head";
 import React from "react";
@@ -22,6 +23,7 @@ const HomePage = (props) => {
         <title>NextJS Events</title>
         <meta name="description" content="Find your special event" />
       </Head>
+      <NewsletterRegistration />
       <EventsList items={events} />
     </div>
   );
