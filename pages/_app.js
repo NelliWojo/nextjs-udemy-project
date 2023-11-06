@@ -1,4 +1,4 @@
-import Layout from "@/components/layout/Layout";
+import Layout from "@/components/layout/layout";
 import { NotificationContextProvider } from "@/store/notification-context";
 import "@/styles/globals.css";
 import Head from "next/head";
